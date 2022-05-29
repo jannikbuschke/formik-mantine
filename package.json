@@ -2,7 +2,7 @@
   "name": "mantine-formik",
   "version": "0.1.0",
   "author": "Jannik Buschke",
-  "private": true,
+  "private": false,
   "sideEffects": false,
   "description": "Dead simple declarative bindings for Formik and Mantine.",
   "displayName": "formik-mantine",
