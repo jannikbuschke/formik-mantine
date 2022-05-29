@@ -37,4 +37,4 @@ steps:
       verbose: false
       publishEndpoint: npm
       customEndpoint: npm
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/release'))
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/main'))
