@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, ComponentMeta, Story } from "@storybook/react"
+import { ComponentStory, ComponentMeta } from "@storybook/react"
 import Component from "./component"
 import { StoryTemplate } from "../../shared"
 
@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Component> = (args, { argTypes }) => {
     <>
       <StoryTemplate initialValues={{ value: "" }}>
         <div>
-          <Component {...args} />
+          <Component name="value" />
         </div>
       </StoryTemplate>
     </>

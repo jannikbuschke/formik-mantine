@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Component> = (args, { argTypes }) => {
     <>
       <StoryTemplate initialValues={{ value: "" }}>
         <div>
-          <Component {...args} />
+          <Component name="value" />
         </div>
       </StoryTemplate>
     </>
