@@ -1,6 +1,6 @@
 {
-  "name": "mantine-formik",
-  "version": "0.1.1",
+  "name": "formik-mantine",
+  "version": "0.2.0",
   "author": "Jannik Buschke",
   "private": false,
   "sideEffects": false,
