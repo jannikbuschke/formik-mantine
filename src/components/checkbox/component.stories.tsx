@@ -23,6 +23,20 @@ const Template: ComponentStory<typeof Component> = (args, { argTypes }) => {
   )
 }
 
+const Template2: ComponentStory<typeof Component> = (args, { argTypes }) => {
+  return (
+    <>
+      <StoryTemplate initialValues={{ value: true }}>
+        <div>
+          <Component {...args} label="Checkbox" name="value" />
+        </div>
+      </StoryTemplate>
+    </>
+  )
+}
+
 export const Default = Template.bind({})
+export const WithInitialValue = Template2.bind({})
+
 export const WithIndeterminate = Template.bind({})
 WithIndeterminate.args = { nullAsIndeterminate: true }

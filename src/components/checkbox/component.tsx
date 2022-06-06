@@ -9,15 +9,11 @@ export const Checkbox = ({
   CheckboxProps,
   "value" | "checked" | "indeterminate"
 >) => {
-  const [
-    { value, onBlur, onChange, checked, multiple },
-    { value: value2, error, initialTouched },
-    { setValue, setTouched },
-  ] = useField(name)
+  const [{ value, checked }, , { setValue }] = useField(name)
   return (
     <MantineCheckbox
       {...rest}
-      checked={checked}
+      checked={checked || value}
       onChange={(v) => setValue(v.target.checked)}
       indeterminate={nullAsIndeterminate && value == null}
     />
