@@ -8,12 +8,15 @@ export const Switch = ({
   onFocus,
   ...rest
 }: { name: string } & Omit<SwitchProps, "checked">) => {
-  const [{ onBlur: formikOnBlur, checked }, _, { setValue, setTouched }] =
-    useField(name)
+  const [
+    { onBlur: formikOnBlur, value, checked },
+    _,
+    { setValue, setTouched },
+  ] = useField(name)
   return (
     <MantineSwitch
       {...rest}
-      checked={checked}
+      checked={checked || value}
       onBlur={(v) => {
         formikOnBlur(v)
         onBlur && onBlur(v)
