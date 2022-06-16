@@ -14,25 +14,86 @@ npm install formik-mantine
 # Example
 
 ```jsx
-import React from 'react'
-import { Form, Input, InputNumber, Checkbox } from 'formik-mantine'
-import { Formik } from 'formik'
+import React from "react"
+import { NotificationsProvider } from "@mantine/notifications"
+import {
+  TextInput,
+  Textarea,
+  PasswordInput,
+  Input,
+  Checkbox,
+  Switch,
+  NumberInput,
+  Slider,
+  Select,
+  RadioGroup,
+  Chips,
+  MultiSelect,
+  SubmitButton,
+} from "formik-mantine"
+import { Radio, Chip } from "@mantine/core"
+import { Formik } from "formik"
 
 function App() {
   return (
-    <Formik
-      {/* default/initial values are set on the Formik container: */ }
-      initialValues={{ firstName: '', age: 20, newsletter: false }}
-      render={() => (
-        <Form>
-          {/* every formik-antd component must have the 'name' prop set: */}
-          <Input name='firstName' placeholder='First Name' />
-          {/* the rest of the api stays as is */}
-          <InputNumber name='age' min={0} />
-          <Checkbox name='newsletter'>Newsletter</Checkbox>
-        </Form>
-      )}
-    />
+    <NotificationsProvider>
+      <Formik
+        initialValues={{
+          // default form values
+          value1: "hello",
+          value2: true,
+          value3: 5,
+          value4: null,
+          value5: ["react", "svelte", "vue"],
+        }}
+        onSubmit={(values) => {
+          console.log({ values })
+          showNotification({
+            title: "Submit",
+            message: <pre>{JSON.stringify(values)}</pre>,
+          })
+        }}
+      >
+        <form>
+          <TextInput label="TextInput" name="value1" />
+          <Textarea label="Textarea" name="value1" />
+          <PasswordInput label="PasswordInput" name="value1" />
+          <Input name="value1" />
+          <Checkbox name="value2" />
+          <Switch name="value2" />
+          <NumberInput name="value3" label="NumberInput" />
+          <Slider name="value3" label="Slider" />
+          <Select
+            name="value4"
+            label="Select (value4)"
+            data={["val1", "val2", "val3"]}
+          />
+          <RadioGroup name="value4" label="RadioGroup (value4)">
+            <Radio value="val1" label="val1" />
+            <Radio value="val2" label="val2" />
+            <Radio value="val3" label="val3" />
+          </RadioGroup>
+          <Chips name="value4">
+            <Chip value="val1">val1</Chip>
+            <Chip value="val2">val2</Chip>
+            <Chip value="val3">val3</Chip>
+          </Chips>
+          <MultiSelect
+            name="value5"
+            label="MultiSelect (value5)"
+            data={["val1", "val2", "val3", "react", "svelte", "vue"]}
+          />
+          <Chips name="value5" multiple={true}>
+            {["val1", "val2", "val3", "react", "svelte", "vue"].map((v) => (
+              <Chip key={v} value={v}>
+                {v}
+              </Chip>
+            ))}
+          </Chips>
+          <SubmitButton>Submit</SubmitButton>
+        </form>
+      </Formik>
+    </NotificationsProvider>
   )
 }
 ```
