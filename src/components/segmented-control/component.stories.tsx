@@ -14,7 +14,7 @@ export default {
 const Template: ComponentStory<typeof Component> = (args, { argTypes }) => {
   return (
     <>
-      <StoryTemplate initialValues={{ value: "2" }}>
+      <StoryTemplate initialValues={{ value: null }}>
         <div>
           <Component
             name="value"
