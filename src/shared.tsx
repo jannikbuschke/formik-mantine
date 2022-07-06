@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentStory, ComponentMeta, Story } from "@storybook/react"
-
+import { Prism } from "@mantine/prism"
 import { Form, Formik, FormikConfig } from "formik"
 
 export function StoryTemplate<Values>({
@@ -15,7 +15,8 @@ export function StoryTemplate<Values>({
             style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}
           >
             {children}
-            <pre>{JSON.stringify({ ...f }, null, 4)}</pre>
+            <Prism language="json">{JSON.stringify({ ...f }, null, 4)}</Prism>;
+            {/* <pre>{JSON.stringify({ ...f }, null, 4)}</pre> */}
           </div>
         </Form>
       )}
