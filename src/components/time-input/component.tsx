@@ -1,15 +1,12 @@
-import {
-  SegmentedControl as Component,
-  SegmentedControlProps as Props,
-} from "@mantine/core"
+import { TimeInput as Component, TimeInputProps as Props } from "@mantine/dates"
 import { useField } from "formik"
 
-export function SegmentedControl  ({
+export function TimeInput({
   name,
   onFocus,
   onChange,
   ...rest
-}: { name: string } & Omit<Props, "error" | "value">)  {
+}: { name: string } & Omit<Props, "error" | "value">) {
   const [{ value }, {}, { setValue, setTouched }] = useField(name)
   return (
     <Component
@@ -27,4 +24,4 @@ export function SegmentedControl  ({
   )
 }
 
-export default SegmentedControl
+export default TimeInput

@@ -1,15 +1,18 @@
 import {
-  SegmentedControl as Component,
-  SegmentedControlProps as Props,
-} from "@mantine/core"
+  RangeCalendar as Component,
+  RangeCalendarProps as Props,
+} from "@mantine/dates"
 import { useField } from "formik"
 
-export function SegmentedControl  ({
+export function RangeCalendar({
   name,
   onFocus,
   onChange,
   ...rest
-}: { name: string } & Omit<Props, "error" | "value">)  {
+}: { name: string; onChange?: (value: [Date, Date]) => void } & Omit<
+  Props,
+  "error" | "value" | "onChange"
+>) {
   const [{ value }, {}, { setValue, setTouched }] = useField(name)
   return (
     <Component
@@ -27,4 +30,4 @@ export function SegmentedControl  ({
   )
 }
 
-export default SegmentedControl
+export default RangeCalendar
