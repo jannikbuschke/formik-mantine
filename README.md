@@ -1,6 +1,10 @@
 [![Build Status](https://dev.azure.com/jannikb/projects-tasks-invoices/_apis/build/status/formik-mantine?branchName=main)](https://dev.azure.com/jannikb/projects-tasks-invoices/_build/latest?definitionId=56&branchName=main)
 ![npm](https://img.shields.io/npm/dw/mantine-formik)
 [![license](https://badgen.now.sh/badge/license/MIT)](./LICENSE)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/jannikbuschke/formik-mantine)
+![npm](https://img.shields.io/npm/v/formik-mantine?style=plastic)
+
+Codesandbox example: https://codesandbox.io/s/formik-mantine-showroom-46h1jx
 
 Simple declarative bindings for [Mantine](https://mantine.dev/) and [Formik](https://github.com/jaredpalmer/Formik).
 
