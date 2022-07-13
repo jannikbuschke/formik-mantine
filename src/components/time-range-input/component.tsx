@@ -4,7 +4,7 @@ import {
 } from "@mantine/dates"
 import { useField } from "formik"
 
-export function TimeInput({
+export function TimeRangeInput({
   name,
   onFocus,
   onChange,
@@ -27,4 +27,4 @@ export function TimeInput({
   )
 }
 
-export default TimeInput
+export default TimeRangeInput
