@@ -11,19 +11,27 @@ export function DatePicker({
   ...rest
 }: { name: string } & Omit<Props, "error" | "value">) {
   const [{ value }, {}, { setValue, setTouched }] = useField(name)
+  const date = value ? new Date(value) : null
   return (
-    <Component
-      {...rest}
-      value={value}
-      onFocus={(e) => {
-        setTouched(true, true)
-        onFocus && onFocus(e)
-      }}
-      onChange={(v) => {
-        setValue(v)
-        onChange && onChange(v)
-      }}
-    />
+    <>
+      <Component
+        {...rest}
+        value={date}
+        onFocus={(e) => {
+          setTouched(true, true)
+          onFocus && onFocus(e)
+        }}
+        onChange={(v) => {
+          if (v) {
+            setValue(v.toISOString())
+          } else {
+            setValue(null)
+          }
+          onChange && onChange(v)
+        }}
+      />
+      value: {value}
+    </>
   )
 }
 

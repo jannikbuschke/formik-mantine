@@ -11,9 +11,12 @@ export default {
 const Template: ComponentStory<typeof Component> = (args, { argTypes }) => {
   return (
     <>
-      <StoryTemplate initialValues={{ value: null }}>
+      <StoryTemplate
+        initialValues={{ value: null, value2: "2022-07-29T22:00:00Z" }}
+      >
         <div>
           <Component name="value" />
+          <Component name="value2" />
         </div>
       </StoryTemplate>
     </>
