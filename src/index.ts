@@ -1,5 +1,5 @@
 export * from "./components/checkbox"
-export * from "./components/chips"
+export * from "./components/chip-group"
 export * from "./components/input"
 export * from "./components/multi-select"
 export * from "./components/radio-group"
