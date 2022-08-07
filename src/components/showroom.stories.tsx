@@ -15,16 +15,7 @@ import { Switch } from "./switch"
 import { Textarea } from "./text-area"
 import { TextInput } from "./text-input"
 import { SubmitButton } from "./submit-button"
-
-function Label({ children }: { children: string }) {
-  return (
-    <label>
-      <Text weight={500} style={{ fontSize: 14, color: "#212529" }} pb={4}>
-        {children}
-      </Text>
-    </label>
-  )
-}
+import { Label } from "./shared"
 
 export function Showroom() {
   return (
