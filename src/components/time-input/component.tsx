@@ -11,13 +11,21 @@ export function TimeInput({
   return (
     <Component
       {...rest}
-      value={value}
+      value={
+        value instanceof Date
+          ? value
+          : value === null
+          ? null
+          : value === undefined
+          ? undefined
+          : new Date(value)
+      }
       onFocus={(e) => {
         setTouched(true, true)
         onFocus && onFocus(e)
       }}
       onChange={(v) => {
-        setValue(v)
+        setValue(v.toISOString())
         onChange && onChange(v)
       }}
     />

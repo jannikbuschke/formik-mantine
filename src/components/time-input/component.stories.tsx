@@ -11,9 +11,17 @@ export default {
 const Template: ComponentStory<typeof Component> = (args, { argTypes }) => {
   return (
     <>
-      <StoryTemplate initialValues={{ value: null }}>
+      <StoryTemplate
+        initialValues={{
+          value: null,
+          value1: new Date(),
+          value2: new Date().toISOString(),
+        }}
+      >
         <div>
           <Component name="value" />
+          <Component name="value1" />
+          <Component name="value2" />
         </div>
       </StoryTemplate>
     </>
