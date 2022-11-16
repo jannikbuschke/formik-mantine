@@ -1,15 +1,20 @@
 import {
   MultiSelect as MantineMultiSelect,
-  MultiSelectProps,
+  MultiSelectProps as MantineMultiSelectProps,
 } from "@mantine/core"
 import { useField } from "formik"
+
+export type MultiSelectProps = { name: string } & Omit<
+  MantineMultiSelectProps,
+  "error" | "value"
+>
 
 export const MultiSelect = ({
   name,
   onChange,
   onFocus,
   ...rest
-}: { name: string } & Omit<MultiSelectProps, "error" | "value">) => {
+}: MultiSelectProps) => {
   const [{ value }, { error }, { setValue, setTouched }] = useField(name)
   return (
     <MantineMultiSelect
