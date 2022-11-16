@@ -1,14 +1,16 @@
-import { Radio as MantineRadio, RadioGroupProps } from "@mantine/core"
+import { Radio as MantineRadio, RadioGroupProps as Props } from "@mantine/core"
 import { useField } from "formik"
 
 export const Radio = MantineRadio
+
+export type RadioGroupProps = { name: string } & Omit<Props, "error" | "value">
 
 export const RadioGroup = ({
   name,
   onFocus,
   onChange,
   ...rest
-}: { name: string } & Omit<RadioGroupProps, "error" | "value">) => {
+}: RadioGroupProps) => {
   const [{ value }, { error }, { setValue, setTouched }] = useField(name)
   return (
     <MantineRadio.Group

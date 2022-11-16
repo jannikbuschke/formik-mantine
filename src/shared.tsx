@@ -1,9 +1,8 @@
 import React from "react"
-import { ComponentStory, ComponentMeta, Story } from "@storybook/react"
 import { Prism } from "@mantine/prism"
-import { Form, Formik, FormikConfig } from "formik"
+import { Form, Formik, FormikConfig, FormikValues } from "formik"
 
-export function StoryTemplate<Values>({
+export function StoryTemplate<Values extends FormikValues>({
   children,
   ...rest
 }: { children: React.ReactNode } & Omit<FormikConfig<Values>, "onSubmit">) {

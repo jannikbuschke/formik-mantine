@@ -1,15 +1,17 @@
 import {
   NumberInput as Component,
-  NumberInputProps as ComponentProps,
+  NumberInputProps as Props,
 } from "@mantine/core"
 import { useField } from "formik"
+
+export type NumberInputProps = { name: string } & Omit<Props, "error" | "value">
 
 export const NumberInput = ({
   name,
   onChange,
   onFocus,
   ...rest
-}: { name: string } & Omit<ComponentProps, "error" | "value">) => {
+}: NumberInputProps) => {
   const [{ value }, { error }, { setValue, setTouched }] = useField(name)
   return (
     <Component

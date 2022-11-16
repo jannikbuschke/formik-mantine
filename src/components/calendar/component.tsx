@@ -1,12 +1,9 @@
 import { Calendar as Component, CalendarProps as Props } from "@mantine/dates"
 import { useField } from "formik"
 
-export function Calendar({
-  name,
-  onFocus,
-  onChange,
-  ...rest
-}: { name: string } & Omit<Props, "error" | "value">) {
+export type CalendarProps = { name: string } & Omit<Props, "error" | "value">
+
+export function Calendar({ name, onFocus, onChange, ...rest }: CalendarProps) {
   const [{ value }, {}, { setValue, setTouched }] = useField(name)
   return (
     <Component

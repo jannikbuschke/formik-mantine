@@ -1,17 +1,19 @@
-import { Checkbox as MantineCheckbox, CheckboxProps } from "@mantine/core"
+import { Checkbox as Component, CheckboxProps as Props } from "@mantine/core"
 import { useField } from "formik"
+
+export type CheckboxProps = {
+  name: string
+  nullAsIndeterminate?: boolean
+} & Omit<Props, "value" | "checked" | "indeterminate">
 
 export const Checkbox = ({
   name,
   nullAsIndeterminate,
   ...rest
-}: { name: string; nullAsIndeterminate?: boolean } & Omit<
-  CheckboxProps,
-  "value" | "checked" | "indeterminate"
->) => {
+}: CheckboxProps) => {
   const [{ value, checked }, , { setValue }] = useField(name)
   return (
-    <MantineCheckbox
+    <Component
       {...rest}
       checked={checked || value}
       onChange={(v) => setValue(v.target.checked)}

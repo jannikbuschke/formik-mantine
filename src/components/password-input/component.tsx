@@ -4,10 +4,12 @@ import {
 } from "@mantine/core"
 import { useField } from "formik"
 
-export function PasswordInput({
-  name,
-  ...rest
-}: { name: string } & Omit<ComponentProps, "value" | "onFocus" | "onChange">) {
+export type PasswordInputProps = { name: string } & Omit<
+  ComponentProps,
+  "value" | "onFocus" | "onChange"
+>
+
+export function PasswordInput({ name, ...rest }: PasswordInputProps) {
   const [{ value }, _, { setValue, setTouched }] = useField(name)
   return (
     <Component

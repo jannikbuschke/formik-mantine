@@ -1,5 +1,7 @@
-import { Switch as MantineSwitch, SwitchProps } from "@mantine/core"
+import { Switch as Component, SwitchProps as Props } from "@mantine/core"
 import { useField } from "formik"
+
+export type SwitchProps = { name: string } & Omit<Props, "checked">
 
 export const Switch = ({
   name,
@@ -7,14 +9,14 @@ export const Switch = ({
   onBlur,
   onFocus,
   ...rest
-}: { name: string } & Omit<SwitchProps, "checked">) => {
+}: SwitchProps) => {
   const [
     { onBlur: formikOnBlur, value, checked },
     _,
     { setValue, setTouched },
   ] = useField(name)
   return (
-    <MantineSwitch
+    <Component
       {...rest}
       checked={checked || value}
       onBlur={(v) => {

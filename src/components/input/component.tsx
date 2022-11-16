@@ -1,13 +1,20 @@
-import { Input as MantineInput } from "@mantine/core"
+import { Input as Component, InputProps as Props } from "@mantine/core"
 import { useField } from "formik"
 
-export function Input({ name }: { name: string }) {
+export type InputProps = { name: string } & Omit<Props, "value">
+
+export function Input({ name, ...props }: InputProps) {
   const [{ value }, _, { setValue, setTouched }] = useField(name)
   return (
-    <MantineInput
+    <Component
+      {...props}
       value={value}
-      onFocus={() => setTouched(true, true)}
-      onChange={(v) => setValue(v.target.value)}
+      onFocus={() => {
+        setTouched(true, true)
+      }}
+      onChange={(v) => {
+        setValue(v.target.value)
+      }}
     />
   )
 }

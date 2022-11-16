@@ -1,11 +1,12 @@
-import { Textarea as MantineTextarea, TextareaProps } from "@mantine/core"
+import {
+  Textarea as MantineTextarea,
+  TextareaProps as Props,
+} from "@mantine/core"
 import { useField } from "formik"
-export function Textarea({
-  name,
-  onBlur,
-  onChange,
-  ...rest
-}: { name: string } & Omit<TextareaProps, "value" | "error">) {
+
+export type TextareaProps = { name: string } & Omit<Props, "value" | "error">
+
+export function Textarea({ name, onBlur, onChange, ...rest }: TextareaProps) {
   const [{ value, onBlur: formikOnBLur }, { error }, { setValue, setTouched }] =
     useField(name)
   return (

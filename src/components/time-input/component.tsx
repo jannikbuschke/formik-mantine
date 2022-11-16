@@ -1,12 +1,14 @@
 import { TimeInput as Component, TimeInputProps as Props } from "@mantine/dates"
 import { useField } from "formik"
 
+export type TimeInputProps = { name: string } & Omit<Props, "error" | "value">
+
 export function TimeInput({
   name,
   onFocus,
   onChange,
   ...rest
-}: { name: string } & Omit<Props, "error" | "value">) {
+}: TimeInputProps) {
   const [{ value }, {}, { setValue, setTouched }] = useField(name)
   return (
     <Component

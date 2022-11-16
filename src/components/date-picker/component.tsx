@@ -4,12 +4,14 @@ import {
 } from "@mantine/dates"
 import { useField } from "formik"
 
+export type DatePickerProps = { name: string } & Omit<Props, "error" | "value">
+
 export function DatePicker({
   name,
   onFocus,
   onChange,
   ...rest
-}: { name: string } & Omit<Props, "error" | "value">) {
+}: DatePickerProps) {
   const [{ value }, {}, { setValue, setTouched }] = useField(name)
   const date = value ? new Date(value) : null
   return (

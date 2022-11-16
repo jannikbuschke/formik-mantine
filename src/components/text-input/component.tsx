@@ -1,10 +1,7 @@
-import {
-  Input as MantineInput,
-  Textarea as MantineTextArea,
-  TextInput as MantineTextInput,
-  TextInputProps,
-} from "@mantine/core"
+import { TextInput as Component, TextInputProps as Props } from "@mantine/core"
 import { useField } from "formik"
+
+export type TextInputProps = { name: string } & Omit<Props, "value" | "error">
 
 export function TextInput({
   name,
@@ -12,11 +9,11 @@ export function TextInput({
   onFocus,
   onChange,
   ...rest
-}: { name: string } & Omit<TextInputProps, "value" | "error">) {
+}: TextInputProps) {
   const [{ value, onBlur: formikOnBlur }, { error }, { setValue, setTouched }] =
     useField(name)
   return (
-    <MantineTextInput
+    <Component
       {...rest}
       error={error}
       value={value}
