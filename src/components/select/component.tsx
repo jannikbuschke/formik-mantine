@@ -1,5 +1,13 @@
-import { Select as MantineSelect, SelectProps } from "@mantine/core"
+import {
+  Select as MantineSelect,
+  SelectProps as MantineSelectProps,
+} from "@mantine/core"
 import { useField } from "formik"
+
+export type SelectProps = { name: string } & Omit<
+  MantineSelectProps,
+  "value" | "error"
+>
 
 export const Select = ({
   name,
@@ -7,7 +15,7 @@ export const Select = ({
   onFocus,
   onBlur: onMantineBlur,
   ...rest
-}: { name: string } & Omit<SelectProps, "value" | "error">) => {
+}: SelectProps) => {
   const [{ value, onBlur }, { error }, { setValue, setTouched }] =
     useField(name)
   return (
